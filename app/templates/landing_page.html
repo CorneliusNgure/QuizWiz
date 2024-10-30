@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizWiz - Learning Made Fun!</title>
+    <link rel="stylesheet" href="../static/css/landing_page.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <h1 class="logo">QuizWiz</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sign-in">Sign In</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+      <h2>Make Learning Fun with QuizWiz!</h2>
+      <p>Engage, learn, and earn badges with fun quizzes.</p>
+      <button class="cta-btn">Start Your Adventure!</button>
+    </header>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+      <h3>Achievements</h3>
+      <div class="badge-grid">
+        <div class="badge">
+          <img src="badge1.png" alt="Milestone Badge" />
+          <p>Level 1 Milestone</p>
+        </div>
+        <div class="badge">
+          <img src="badge2.png" alt="High Score Badge" />
+          <p>High Score Champion</p>
+        </div>
+        <div class="badge">
+          <img src="badge3.png" alt="Winning Streak Badge" />
+          <p>Winning Streak</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard">
+      <h3>Top Players</h3>
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>High Score</th>
+            <th>Streak</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jane Doe</td>
+            <td>1200</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>John Smith</td>
+            <td>1100</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>Lisa Chen</td>
+            <td>1000</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact">
+      <h3>We Value Your Feedback!</h3>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea
+          name="message"
+          rows="4"
+          placeholder="Tell us your thoughts..."
+        ></textarea>
+        <button type="submit" class="submit-btn">Send Feedback</button>
+      </form>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <h3>About QuizWiz</h3>
+      <p>
+        QuizWiz is designed to make learning interactive and enjoyable. With
+        quizzes across various subjects, you can play, learn, and grow your
+        knowledge while collecting rewards.
+      </p>
+    </section>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollToTop" class="scroll-to-top-btn">↑</button>
+    <script src="../static/js/landing_page.js"></script>
+  </body>
+</html>

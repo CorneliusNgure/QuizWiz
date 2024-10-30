@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuizWiz</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
   </head>
   <body>
     <!-- Mobile Dropdown Menu -->
     <nav class="dropdown-menu">
       <div class="menu-header">
-        <h2>Quiz Categories</h2>
+        <button class="menu-btn">&#9776;</button>
         <button class="close-btn">&times;</button>
       </div>
       <ul class="category-list">
+        <!-- <h3>Quiz Categories</h3> -->
+
         <li><a href="#">General Knowledge</a></li>
         <li><a href="#">Science & Computers</a></li>
         <li><a href="#">History</a></li>
@@ -28,7 +30,6 @@
 
     <!-- Main content -->
     <header>
-      <button class="menu-btn">&#9776;</button>
       <h1>QuizWiz</h1>
       <p class="slogan">Test your wits one QuizWiz at a time!</p>
     </header>
@@ -36,7 +37,6 @@
     <main>
       <section class="quiz-options">
         <button class="start-btn">Start Quiz</button>
-
         <label for="category">Choose Category:</label>
         <select id="category">
           <option value="general">General Knowledge</option>
@@ -56,14 +56,13 @@
     </main>
 
     <footer>
-      <p>&copy; 2024 QuizWiz. All rights reserved.</p>
       <div class="social-icons">
         <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
         <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
         <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
       </div>
+      <p>&copy; 2024 QuizWiz. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
+    <script src="../static/js/script.js"></script>
   </body>
 </html>
