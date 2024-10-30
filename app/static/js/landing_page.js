@@ -1,4 +1,4 @@
-// Scroll to Top Button functionality
+// scroll to top button
 const scrollToTopBtn = document.getElementById("scrollToTop");
 window.addEventListener("scroll", () => {
   scrollToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";

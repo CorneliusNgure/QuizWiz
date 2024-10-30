@@ -8,10 +8,10 @@ document.querySelector(".close-btn").addEventListener("click", () => {
 });
 
 // Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
+window.onclick = function (event) {
   const dropdown = document.querySelector(".dropdown-menu");
   if (!dropdown.contains(event.target) && !event.target.matches(".menu-btn")) {
-      dropdown.classList.remove("show");
+    dropdown.classList.remove("show");
   }
 };
 

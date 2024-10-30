@@ -127,15 +127,13 @@ footer p {
 }
 footer .social-icons a {
   margin: 10px;
-  color:#ddd;
-
+  color: #ddd;
 }
 footer .social-icons img {
   width: 24px;
   height: 24px;
   filter: grayscale(100%);
   transition: filter 0.3s;
-
 }
 footer .social-icons img:hover {
   filter: grayscale(0%);
@@ -193,7 +191,7 @@ footer .social-icons img:hover {
   font-size: 1.5em;
   border: none;
   cursor: pointer;
-  align-items:end;
+  align-items: end;
   margin-left: auto;
 }
 .dropdown-menu .category-list {
