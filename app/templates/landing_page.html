@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuizWiz - Learning Made Fun!</title>
-    <link rel="stylesheet" href="../static/css/landing_page.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',
+    filename='css/landing_page.css') }}"
+    />
   </head>
   <body>
     <!-- Navbar -->
@@ -30,19 +34,22 @@
       <h3>Achievements</h3>
       <div class="badge-grid">
         <div class="badge">
-          <img src="../static/images/badge_level_1.jpg" alt="Milestone Badge" />
+          <img
+            src="{{ url_for('static', filename='images/badge_level_1.jpg') }}"
+            alt="Milestone Badge"
+          />
           <p>Level 1 Milestone</p>
         </div>
         <div class="badge">
           <img
-            src="../static/images/badge_high_score_champion.jpg"
+            src="{{ url_for('static', filename='images/badge_high_score_champion.jpg') }}"
             alt="High Score Badge"
           />
           <p>High Score Champion</p>
         </div>
         <div class="badge">
           <img
-            src="../static/images/badge_winning_streak.jpg"
+            src="{{ url_for('static', filename='images/badge_winning_streak.jpg') }}"
             alt="Winning Streak Badge"
           />
           <p>Winning Streak</p>
@@ -109,6 +116,6 @@
 
     <!-- Scroll-to-Top Button -->
     <button id="scrollToTop" class="scroll-to-top-btn">↑</button>
-    <script src="../static/js/landing_page.js"></script>
+    <script src="{{ url_for('static', filename='js/landing_page.js') }}"></script>
   </body>
 </html>
