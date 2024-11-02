@@ -3,70 +3,252 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuizWiz</title>
+    <title>QuizWiz Game - Choose Your Quiz!</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/styles.css')
-    }}"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      /* General Styling */
+      body,
+      html {
+        font-family: "Comic Sans MS", sans-serif;
+        background-color: #ffcccb;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .navbar-nav .nav-link {
+        color: #4b0082;
+        font-weight: bold;
+      }
+
+      /* Game Selection Section */
+      .game-section {
+        padding: 4rem 2rem;
+        text-align: center;
+        background-color: #e082e9;
+      }
+      .game-section h2 {
+        color: #320bdb;
+        margin-bottom: 1.5rem;
+      }
+      .selection-box {
+        background-color: #e0dfec;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 500px;
+        margin: auto;
+      }
+      .selection-box label {
+        font-weight: bold;
+        color: #320bdb;
+      }
+      .selection-box select {
+        margin: 0.5rem 0;
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: white;
+        color: #000000;
+        height: auto;
+        text-align: center;
+      }
+      .selection-box option {
+        color: #4b0082;
+        background-color: white;
+      }
+
+      /* Start Button Animation */
+      .start-btn {
+        background-color: #ff69b4;
+        color: white;
+        font-weight: bold;
+        border: none;
+        animation: pulse 1.5s infinite;
+        padding: 0.8rem;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+      }
+      .start-btn:hover {
+        background-color: #ff1493;
+      }
+
+      /* Sign-in Prompt */
+      .sign-in-note {
+        color: #4b0082;
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1rem;
+        text-align: center;
+      }
+      .footer .social-icons a {
+        color: #4b0082;
+        margin: 0 15px;
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .footer .social-icons a span {
+        margin-left: 5px;
+        font-weight: bold;
+      }
+
+      /* Animations */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Mobile Dropdown Menu -->
-    <nav class="dropdown-menu">
-      <div class="menu-header">
-        <button class="menu-btn">&#9776;</button>
-        <button class="close-btn">&times;</button>
-      </div>
-      <ul class="category-list">
-        <!-- <h3>Quiz Categories</h3> -->
-
-        <li><a href="#">General Knowledge</a></li>
-        <li><a href="#">Science & Computers</a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Geography</a></li>
-        <li><a href="#">Sports</a></li>
-      </ul>
-      <div class="mode-toggle">
-        <label for="mode-switch">Dark Mode:</label>
-        <input type="checkbox" id="mode-switch" />
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand font-weight-bold" href="#">QuizWiz</a>
+      <button class="navbar-toggler hamburger-menu" onclick="toggleMenu()">
+        &#9776;
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sign-in.html">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sign-out.html">Sign Out</a>
+          </li>
+        </ul>
       </div>
     </nav>
 
-    <!-- Main content -->
-    <header>
-      <h1>QuizWiz</h1>
-      <p class="slogan">Test your wits one QuizWiz at a time!</p>
-    </header>
+    <!-- Game Section -->
+    <section class="game-section">
+      <h2>Select Your Quiz</h2>
+      <p>
+        Choose a category and difficulty level to begin. <br />
+        Sign in to save your progress and earn rewards!
+      </p>
 
-    <main>
-      <section class="quiz-options">
-        <button class="start-btn">Start Quiz</button>
-        <label for="category">Choose Category:</label>
-        <select id="category">
-          <option value="general">General Knowledge</option>
-          <option value="science">Science & Computers</option>
-          <option value="history">History</option>
-          <option value="geography">Geography</option>
-          <option value="sports">Sports</option>
-        </select>
+      <div class="selection-box">
+        <form id="quizForm">
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" class="form-control">
+              <option value="" selected disabled>Select Category</option>
+              <option value="9">General Knowledge</option>
+              <option value="11">Movies</option>
+              <option value="12">Music</option>
+              <option value="14">Television</option>
+              <option value="17">Science & Nature</option>
+              <option value="18">Science: Computers</option>
+              <option value="19">Science: Gadgets</option>
+              <option value="21">Sports</option>
+              <option value="22">Geography</option>
+              <option value="23">History</option>
+              <option value="24">Politics</option>
+              <option value="25">Art</option>
+              <option value="26">Animals</option>
+              <option value="27">Mythology</option>
+              <option value="28">Comics</option>
+              <option value="29">Gadgets</option>
+              <option value="30">Vehicles</option>
+              <option value="31">Video Games</option>
+              <option value="32">Anime & Manga</option>
+            </select>
+          </div>
 
-        <label for="difficulty">Choose Difficulty:</label>
-        <select id="difficulty">
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-      </section>
-    </main>
+          <div class="form-group">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" class="form-control">
+              <option value="" selected disabled>Select Difficulty</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
 
-    <footer>
-      <div class="social-icons">
-        <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
-        <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
-        <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
+          <button type="button" class="btn start-btn" onclick="startQuiz()">
+            Start Game
+          </button>
+        </form>
+
+        <div class="sign-in-note">
+          <p>
+            <strong>Note:</strong> You can play without signing in, but signing
+            in lets you save your scores and compete with friends!
+          </p>
+        </div>
       </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
       <p>&copy; 2024 QuizWiz. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="GitHub"
+          ><i class="fab fa-github"></i><span>GitHub</span></a
+        >
+        <a href="#" aria-label="Twitter"
+          ><i class="fab fa-twitter"></i><span>Twitter</span></a
+        >
+        <a href="#" aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i><span>LinkedIn</span></a
+        >
+      </div>
     </footer>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+      function toggleMenu() {
+        const nav = document.querySelector(".navbar-nav");
+        nav.style.display = nav.style.display === "block" ? "none" : "block";
+      }
+
+      function startQuiz() {
+        const category = document.getElementById("category").value;
+        const difficulty = document.getElementById("difficulty").value;
+
+        if (!category || !difficulty) {
+          alert("Please select both a category and difficulty level.");
+          return;
+        }
+
+        alert(
+          `Starting quiz in ${category} category with ${difficulty} difficulty!`
+        );
+        // In production, this is where the quiz fetch request would go.
+      }
+    </script>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
